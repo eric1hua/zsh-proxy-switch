@@ -9,13 +9,13 @@ ts=$(date +%Y%m%d-%H%M%S)
 for f in "$HOME/.zshrc" "$HOME/.zshenv"; do
   [ -f "$f" ] || continue
   grep -qF "$MARK" "$f" || { echo "· $f 没装过，跳过"; continue; }
-  cp "$f" "$f.bak.$ts"
+  cp "$f" "${f}.bak.${ts}"
   awk -v m="$MARK" -v e="$END" '
     $0 == m {skip=1; next}
     $0 == e {skip=0; next}
     !skip {print}
-  ' "$f.bak.$ts" > "$f"
-  echo "✓ 已从 $(basename "$f") 移除（备份 $f.bak.$ts）"
+  ' "${f}.bak.${ts}" > "$f"
+  echo "✓ 已从 $(basename "$f") 移除（备份 ${f}.bak.${ts}）"
 done
 
 # 清掉残留状态

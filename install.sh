@@ -13,7 +13,7 @@ ts=$(date +%Y%m%d-%H%M%S)
 if [ -f "$HOME/.zshrc" ] && grep -qF "$MARK" "$HOME/.zshrc"; then
   echo "· .zshrc 已装过，跳过"
 else
-  [ -f "$HOME/.zshrc" ] && cp "$HOME/.zshrc" "$HOME/.zshrc.bak.$ts" && echo "· 备份 ~/.zshrc.bak.$ts"
+  [ -f "$HOME/.zshrc" ] && cp "$HOME/.zshrc" "$HOME/.zshrc.bak.${ts}" && echo "· 备份 ~/.zshrc.bak.${ts}"
   {
     echo ""
     echo "$MARK"
@@ -28,7 +28,7 @@ fi
 if [ -f "$HOME/.zshenv" ] && grep -qF "$MARK" "$HOME/.zshenv"; then
   echo "· .zshenv 已装过，跳过"
 else
-  [ -f "$HOME/.zshenv" ] && cp "$HOME/.zshenv" "$HOME/.zshenv.bak.$ts" && echo "· 备份 ~/.zshenv.bak.$ts"
+  [ -f "$HOME/.zshenv" ] && cp "$HOME/.zshenv" "$HOME/.zshenv.bak.${ts}" && echo "· 备份 ~/.zshenv.bak.${ts}"
   {
     echo ""
     echo "$MARK"
