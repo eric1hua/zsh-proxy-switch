@@ -51,6 +51,37 @@ proxy on
 
 ---
 
+## Tab 补全
+
+`proxy <Tab>` 会列出子命令和说明：
+
+```
+$ proxy <Tab>
+on      -- 开代理（终端 + GUI + 新开的 shell）
+off     -- 关代理
+status  -- 看当前状态
+check   -- 只做连通性检测
+--help  -- 显示用法
+```
+
+前提是你的 `.zshrc` 里跑过 `compinit`，而且在 source 本脚本**之前**：
+
+```zsh
+autoload -Uz compinit
+compinit
+```
+
+没跑过的话补全会静默跳过，`proxy on/off` 照常能用，只是 Tab 补不出来。
+
+顺带一提：`compinit` 缺失是个很隐蔽的坑。没有它，所有 `compdef` 注册都会悄悄失效 ——
+补全函数加载了，按 Tab 却什么都不出来，也不报错。检查方法：
+
+```bash
+zsh -ic 'echo ${#_comps}'   # 返回 0 就是没跑 compinit
+```
+
+---
+
 ## 改端口
 
 只改 `proxy.zsh` 开头两行：

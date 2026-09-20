@@ -170,3 +170,22 @@ proxy() {
       ;;
   esac
 }
+
+# ------------------------------
+# Tab 补全
+# 需要外部先跑过 compinit（见 README）；没跑过就静默跳过，不报错
+# ------------------------------
+if (( $+functions[compdef] )); then
+  _proxy() {
+    local -a cmds
+    cmds=(
+      'on:开代理（终端 + GUI + 新开的 shell）'
+      'off:关代理'
+      'status:看当前状态'
+      'check:只做连通性检测'
+      '--help:显示用法'
+    )
+    _describe '子命令' cmds
+  }
+  compdef _proxy proxy
+fi
