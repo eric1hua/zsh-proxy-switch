@@ -21,7 +21,7 @@ proxy --help
 把下面整段贴给 Claude Code / Codex 之类的编码 agent：
 
 ```
-克隆 https://github.com/<你的用户名>/zsh-proxy-switch 到 ~/Developer/zsh-proxy-switch，
+克隆 https://github.com/eric1hua/zsh-proxy-switch 到 ~/Developer/zsh-proxy-switch，
 然后跑 ./install.sh。装完告诉我要不要重开终端。
 如果 ~/.zshrc 里已经有旧的 proxyon/proxyoff 函数，先帮我删掉，避免和新脚本重名冲突。
 ```
@@ -35,7 +35,7 @@ proxy --help
 ### 手动安装
 
 ```bash
-git clone https://github.com/<你的用户名>/zsh-proxy-switch.git ~/Developer/zsh-proxy-switch
+git clone https://github.com/eric1hua/zsh-proxy-switch.git ~/Developer/zsh-proxy-switch
 ~/Developer/zsh-proxy-switch/install.sh
 source ~/.zshrc
 proxy on
