@@ -17,6 +17,10 @@ PROXY_PORT="10808"
 _proxy_noproxy_list=(
   127.0.0.0/8 127.0.0.1 0.0.0.0 localhost .localhost ::1
   10.0.0.0/8 172.16.0.0/12 192.168.0.0/16 169.254.0.0/16
+  # Tailscale 给每台设备分配的地址都落在这一段（RFC 6598 CGNAT 保留段，
+  # 范围 100.64.0.0 - 100.127.255.255）。不加的话访问 tailnet 里的机器
+  # 会被丢给代理，代理不认识这个虚拟网络，直接返回 502
+  100.64.0.0/10
   .local
   feishu.cn .feishu.cn
   larksuite.com .larksuite.com
